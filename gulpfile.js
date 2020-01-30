@@ -11,7 +11,7 @@ const root = './src/',
 //compile scss to css
 function style(){
     return gulp.src(styleWatch)
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(root+'css/'))
         .pipe(browserSync.stream());
 }
